@@ -22,4 +22,4 @@ def decorator():
     return 'O que é: Um decorator (decorador) em Python é uma função que recebe outra função como parâmetro e estende seu comportamento sem modificar explicitamente seu código-fonte.' \
     'pra que serve: Reutilização de Código (DRY - Dont Repeat Yourself): Aplicar a mesma lógica a múltiplas funções.Separar Preocupações: Manter a lógica de negócios separada de infraestrutura (ex: verificar login antes de processar dados).Modificar Comportamento: Adicionar código antes ou depois da execução de uma função.' \
     'como utilizar: Quando o Flask inicia, ele lê seu código. Ao encontrar o @app.route('/sobre'), ele registra internamente que a função sobre() deve ser executada quando a rota /sobre for acessada.'
- 
+    
