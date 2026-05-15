@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Currículo - Henrique Poltronieri Martins Almeida Alves</title>
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            max-width: 800px; 
+            margin: 30px auto; 
+            padding: 20px; 
+            color: #111; 
+            line-height: 1.4; 
+            font-size: 13px; 
+        }
+        .header { 
+            text-align: center; 
+            margin-bottom: 25px; 
+        }
+        .header h1 { 
+            margin: 0 0 8px 0; 
+            font-size: 24px; 
+            font-weight: bold; 
+            letter-spacing: 0.5px; 
+        }
+        .header .contato { 
+            color: #444; 
+            font-size: 12px; 
+            margin-bottom: 6px; 
+        }
+        .header a { 
+            color: #0056b3; 
+            text-decoration: underline; 
+            font-size: 12px; 
+        }
+        
+        .section-row { 
+            display: flex; 
+            margin-top: 12px; 
+            padding-top: 12px; 
+            border-top: 1px solid #777; 
+        }
+        .section-title { 
+            width: 140px; 
+            font-size: 11px; 
+            font-weight: bold; 
+            text-transform: uppercase; 
+            letter-spacing: 0.5px; 
+            flex-shrink: 0; 
+        }
+        .section-content { 
+            flex-grow: 1; 
+            text-align: justify; 
+        }
+        
+        .section-content p { 
+            margin: 0 0 10px 0; 
+        }
+        .project-title { 
+            font-weight: bold; 
+            font-size: 13px; 
+            margin-bottom: 6px; 
+            display: flex; 
+            justify-content: space-between; 
+        }
+        .project-title a { 
+            font-weight: normal; 
+            font-size: 11px; 
+            color: #0056b3; 
+            text-decoration: none; 
+        }
+        
+        .skills-group { 
+            font-weight: bold; 
+            margin-bottom: 4px; 
+            margin-top: 6px; 
+        }
+        .skills-group:first-child { 
+            margin-top: 0; 
+        }
+        ul { 
+            margin: 0 0 10px 0; 
+            padding-left: 15px; 
+        }
+        li { 
+            margin-bottom: 2px; 
+        }
+        
+        .edu-block {
+            display: flex;
+            justify-content: space-between;
+        }
+        .edu-right {
+            text-align: right;
+        }
+        .edu-sub-block {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 4px;
+            color: #333;
+        }
+
+        @media print {
+            body { margin: 0; padding: 0; }
+            .btn-print { display: none; }
+        }
+        .btn-print { 
+            position: fixed; 
+            top: 20px; 
+            right: 20px; 
+            padding: 10px 15px; 
+            background: #222; 
+            color: white; 
+            border: none; 
+            border-radius: 4px; 
+            cursor: pointer; 
+            font-weight: bold; 
+        }
+        .btn-print:hover { background: #444; }
+    </style>
+</head>
+<body>
+
+    <button class="btn-print" onclick="window.print()">Salvar como PDF / Imprimir</button>
+
+    <div class="header">
+        <h1>Henrique Poltronieri<br>Martins Almeida Alves</h1>
+        <div class="contato">Belo Horizonte, MG &nbsp;|&nbsp; (31) 99354-5513 &nbsp;|&nbsp; henrique.poltronieri2008@gmail.com</div>
+        <a href="https://portifolio-henrique-poltronieri.vercel.app/" target="_blank">Meu Portfólio</a>
+    </div>
+
+    <div class="section-row">
+        <div class="section-title">Redes Sociais:</div>
+        <div class="section-content">
+            <strong>Linkedin:</strong> <a href="https://www.linkedin.com/in/henrique-poltronieri/" target="_blank">/HenriquePoltronieri</a><br>
+            <strong>GitHub:</strong> <a href="https://github.com/HenriquePoltronieri" target="_blank">/HenriquePoltronieri</a>
+        </div>
+    </div>
+
+    <div class="section-row">
+        <div class="section-title">Sobre Mim:</div>
+        <div class="section-content">
+            <p>Sou estudante do 3º ano do Ensino Médio Técnico em TI no Colégio Cotemig, com conclusão prevista para dezembro de 2026. Possuo conhecimentos em Front-End: (HTML, CSS, JavaScript) Mobile: (Dart/Flutter, Kotlin, Swift) Back-End: (C#, Python, Java), com disposição para aprender, evoluir tecnicamente e colaborar em projetos na área de TI juntamente de uma equipe que me ajude a crescer na área.</p>
+        </div>
+    </div>
+
+    <div class="section-row">
+        <div class="section-title">Experiências:</div>
+        <div class="section-content">
+            <p>Desenvolvimento de projetos acadêmicos na área de TI durante o curso Técnico em Tecnologia da Informação no Colégio Cotemig, utilizando Front-end (HTML, CSS, JavaScript), Back-end (C#, Python, Java) e Mobile (Dart/Flutter, Kotlin, Swift). Atuação com lógica de programação, desenvolvimento de aplicações e colaboração em atividades em equipe, com foco em aprendizado contínuo e evolução técnica.</p>
+        </div>
+    </div>
+
+    <div class="section-row">
+        <div class="section-title">Projetos:</div>
+        <div class="section-content">
+            <div class="project-title">
+                <span>Bulls and Cows</span>
+                <a href="https://github.com/HenriquePoltronieri/Bulls-and-Cowns---Kotlin" target="_blank">Link</a>
+            </div>
+            <p>Aplicação de console baseada no jogo de adivinhação Bulls and Cows (similar ao Mastermind), com geração automática de palavra secreta, validação de tentativas do usuário e sistema de feedback com acertos exatos e parciais, além de controle de limite de jogadas e condição de vitória ou derrota.</p>
+            <p>Desenvolvido em Kotlin (Kotlin/JVM), utilizando estrutura modular com funções, manipulação de strings, validação de entrada de dados e execução em ambiente de desenvolvimento IntelliJ IDEA, com foco em lógica de programação e organização de código para aplicações simples em console.</p>
+        </div>
+    </div>
+
+    <div class="section-row">
+        <div class="section-title">Habilidades:</div>
+        <div class="section-content">
+            <div class="skills-group">Hard Skills</div>
+            <ul>
+                <li>Flutter, Kotlin, Swift</li>
+                <li>C#, Python, Java</li>
+                <li>HTML, CSS, JavaScript</li>
+                <li>MySQL</li>
+                <li>Pacote Office</li>
+                <li>UI/UX, Figma</li>
+            </ul>
+            <div class="skills-group">Soft Skills</div>
+            <ul>
+                <li>Facilidade de aprendizado</li>
+                <li>Interesse por novas tecnologias</li>
+                <li>Vontade de aprender e crescer na área</li>
+                <li>Comunicação</li>
+                <li>Organização</li>
+                <li>Trabalho em equipe</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="section-row">
+        <div class="section-title">Educação:</div>
+        <div class="section-content">
+            <div class="edu-block">
+                <strong>Colégio Cotemig</strong>
+                <span class="edu-right"><strong>2024 - 2026</strong></span>
+            </div>
+            <div class="edu-sub-block">
+                <span>Ensino Médio Técnico em TI - Desenvolvimento Web & Mobile</span>
+                <span class="edu-right">Belo Horizonte, MG<br>Unidade Barroca</span>
+            </div>
+            <div class="edu-sub-block" style="margin-top: 8px;">
+                <strong>Cursando 3º ano</strong>
+                <span class="edu-right"><strong>Previsão de Conclusão 12/2026</strong></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="section-row">
+        <div class="section-title">Idiomas:</div>
+        <div class="section-content">
+            <strong>Inglês</strong><br>
+            Intermediário
+        </div>
+    </div>
+
+</body>
+</html>
