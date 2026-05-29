@@ -113,3 +113,4 @@ def calcular():
         etapas=etapas,
         resultados=resultado
     )
+
