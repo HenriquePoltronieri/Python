@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+{% block title %}Autores{% endblock %}
+
+{% block content %}
+<h1>Autores</h1>
+<p><a class="btn" href="{{ url_for('autores.cadastrar') }}">+ Novo autor</a></p>
+
+{% if autores %}
+<table>
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Nome</th>
+            <th>E-mail</th>
+            <th>Nacionalidade</th>
+            <th>Cadastro</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for autor in autores %}
+        <tr>
+            <td>{{ autor.id }}</td>
+            <td>{{ autor.nome }}</td>
+            <td>{{ autor.email }}</td>
+            <td>{{ autor.nacionalidade or '—' }}</td>
+            <td>{{ autor.data_criacao.strftime('%d/%m/%Y') }}</td>
+            <td class="acoes">
+                <a href="{{ url_for('autores.editar', autor_id=autor.id) }}">Editar</a>
+                <form method="POST" action="{{ url_for('autores.excluir', autor_id=autor.id) }}"
+                      onsubmit="return confirm('Excluir {{ autor.nome }}?');">
+                    <button type="submit" class="btn-danger">Excluir</button>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% else %}
+<p class="vazio">Nenhum autor cadastrado.</p>
+{% endif %}
+{% endblock %}

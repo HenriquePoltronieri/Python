@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+{% block title %}{{ titulo }}{% endblock %}
+
+{% block content %}
+<h1>{{ titulo }}</h1>
+
+{% if erro %}
+<p class="erro">{{ erro }}</p>
+{% endif %}
+
+<form method="POST"
+      action="{% if autor_id %}{{ url_for('autores.editar', autor_id=autor_id) }}{% else %}{{ url_for('autores.cadastrar') }}{% endif %}">
+    <div class="form-grupo">
+        <label for="nome">Nome</label>
+        <input type="text" id="nome" name="nome" required value="{{ nome or '' }}">
+    </div>
+    <div class="form-grupo">
+        <label for="email">E-mail</label>
+        <input type="email" id="email" name="email" required value="{{ email or '' }}">
+    </div>
+    <div class="form-grupo">
+        <label for="nacionalidade">Nacionalidade</label>
+        <input type="text" id="nacionalidade" name="nacionalidade" value="{{ nacionalidade or '' }}">
+    </div>
+    <button type="submit">Salvar</button>
+</form>
+
+<p><a href="{{ url_for('autores.listar') }}">← Voltar</a></p>
+{% endblock %}

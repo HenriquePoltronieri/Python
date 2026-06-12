@@ -1,0 +1,46 @@
+{% extends "layout.html" %}
+{% block title %}Empréstimo #{{ emprestimo.id }}{% endblock %}
+
+{% block content %}
+<h1>Empréstimo #{{ emprestimo.id }}</h1>
+
+<div class="info-box">
+    <p><strong>Autor:</strong> {{ emprestimo.autor.nome }} ({{ emprestimo.autor.email }})</p>
+    <p><strong>Status:</strong> {{ emprestimo.status }}</p>
+    <p><strong>Observação:</strong> {{ emprestimo.observacao or '—' }}</p>
+    <p><strong>Criado em:</strong> {{ emprestimo.data_criacao.strftime('%d/%m/%Y %H:%M') }}</p>
+    <p><strong>Atualizado em:</strong> {{ emprestimo.data_atualizacao.strftime('%d/%m/%Y %H:%M') }}</p>
+</div>
+
+<h2>Itens</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Título</th>
+            <th>Qtd</th>
+            <th>Valor unit.</th>
+            <th>Subtotal</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for item in emprestimo.itens %}
+        <tr>
+            <td>{{ item.titulo }}</td>
+            <td>{{ item.quantidade }}</td>
+            <td>R$ {{ "%.2f"|format(item.valor_unitario) }}</td>
+            {# item.subtotal é @property no Python — aqui no Jinja usa sem () mesmo #}
+            <td>R$ {{ "%.2f"|format(item.subtotal) }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+    <tfoot>
+        <tr>
+            {# emprestimo.total também é @property — soma automática dos itens #}
+            <td colspan="3"><strong>Total</strong></td>
+            <td><strong>R$ {{ "%.2f"|format(emprestimo.total) }}</strong></td>
+        </tr>
+    </tfoot>
+</table>
+
+<p><a href="{{ url_for('emprestimos.listar') }}">← Voltar aos empréstimos</a></p>
+{% endblock %}

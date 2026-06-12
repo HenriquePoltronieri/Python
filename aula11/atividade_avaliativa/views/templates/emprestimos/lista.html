@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+{% block title %}Empréstimos{% endblock %}
+
+{% block content %}
+<h1>Empréstimos</h1>
+<p><a class="btn" href="{{ url_for('emprestimos.cadastrar') }}">+ Novo empréstimo</a></p>
+
+{% if emprestimos %}
+<table>
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Autor</th>
+            <th>Status</th>
+            <th>Itens</th>
+            <th>Total</th>
+            <th>Data</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for emprestimo in emprestimos %}
+        <tr>
+            <td>{{ emprestimo.id }}</td>
+            <td>{{ emprestimo.autor.nome }}</td>
+            <td>{{ emprestimo.status }}</td>
+            <td>{{ emprestimo.itens|length }}</td>
+            <td>R$ {{ "%.2f"|format(emprestimo.total) }}</td>
+            <td>{{ emprestimo.data_criacao.strftime('%d/%m/%Y %H:%M') }}</td>
+            <td><a href="{{ url_for('emprestimos.detalhe', emprestimo_id=emprestimo.id) }}">Ver</a></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% else %}
+<p class="vazio">Nenhum empréstimo cadastrado.</p>
+{% endif %}
+{% endblock %}

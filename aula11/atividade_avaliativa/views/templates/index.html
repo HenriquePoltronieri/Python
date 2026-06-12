@@ -1,0 +1,46 @@
+{% extends "layout.html" %}
+{% block title %}Painel — Biblioteca{% endblock %}
+
+{% block content %}
+<h1>Painel da Biblioteca</h1>
+<p class="subtitulo">Atividade Avaliativa — Superclasse abstrata + FK + MVC</p>
+
+<div class="cards">
+    <div class="card">
+        <span class="card-num">{{ total_autores }}</span>
+        <span class="card-label">Autores</span>
+    </div>
+    <div class="card">
+        <span class="card-num">{{ total_emprestimos }}</span>
+        <span class="card-label">Empréstimos</span>
+    </div>
+</div>
+
+<h2>Empréstimos recentes</h2>
+{% if emprestimos_recentes %}
+<table>
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Autor</th>
+            <th>Status</th>
+            <th>Total</th>
+            <th>Criado em</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for emprestimo in emprestimos_recentes %}
+        <tr>
+            <td><a href="{{ url_for('emprestimos.detalhe', emprestimo_id=emprestimo.id) }}">#{{ emprestimo.id }}</a></td>
+            <td>{{ emprestimo.autor.nome }}</td>
+            <td>{{ emprestimo.status }}</td>
+            <td>R$ {{ "%.2f"|format(emprestimo.total) }}</td>
+            <td>{{ emprestimo.data_criacao.strftime('%d/%m/%Y %H:%M') }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% else %}
+<p class="vazio">Nenhum empréstimo ainda.</p>
+{% endif %}
+{% endblock %}

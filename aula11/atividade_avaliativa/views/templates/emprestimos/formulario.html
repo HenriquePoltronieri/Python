@@ -1,0 +1,56 @@
+{% extends "layout.html" %}
+{% block title %}{{ titulo }}{% endblock %}
+
+{% block content %}
+<h1>{{ titulo }}</h1>
+
+{% if erro %}
+<p class="erro">{{ erro }}</p>
+{% endif %}
+
+{% if autores %}
+<form method="POST" action="{{ url_for('emprestimos.cadastrar') }}">
+    <div class="form-grupo">
+        <label for="autor_id">Autor</label>
+        <select id="autor_id" name="autor_id" required>
+            <option value="">Selecione...</option>
+            {% for a in autores %}
+            <option value="{{ a.id }}">{{ a.nome }}</option>
+            {% endfor %}
+        </select>
+    </div>
+
+    <div class="form-grupo">
+        <label for="observacao">Observação</label>
+        <input type="text" id="observacao" name="observacao" value="{{ observacao or '' }}">
+    </div>
+
+    <h3>Itens do empréstimo</h3>
+    <div id="itens">
+        <div class="item-linha">
+            <input type="text" name="titulo" placeholder="Título do livro" required>
+            <input type="number" name="quantidade" placeholder="Qtd" min="1" value="1" required>
+            <input type="number" name="valor_unitario" placeholder="Valor" step="any" min="0" required>
+        </div>
+    </div>
+    <button type="button" onclick="adicionarLinha()">+ Item</button>
+    <br><br>
+    <button type="submit">Salvar empréstimo</button>
+</form>
+{% endif %}
+
+<p><a href="{{ url_for('emprestimos.listar') }}">← Voltar</a></p>
+
+<script>
+function adicionarLinha() {
+    const div = document.createElement('div');
+    div.className = 'item-linha';
+    div.innerHTML = `
+        <input type="text" name="titulo" placeholder="Título do livro" required>
+        <input type="number" name="quantidade" placeholder="Qtd" min="1" value="1" required>
+        <input type="number" name="valor_unitario" placeholder="Valor" step="any" min="0" required>
+    `;
+    document.getElementById('itens').appendChild(div);
+}
+</script>
+{% endblock %}
