@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ titulo }}</title>
+</head>
+<body>
+    <h1>{{ titulo }}</h1>
+    <form method="POST">
+        <p>
+            <label>Nome:</label>
+            <input type="text" name="nome" value="{{ nome or '' }}" required>
+        </p>
+        <p>
+            <label>Email:</label>
+            <input type="email" name="email" value="{{ email or '' }}" required>
+        </p>
+        <button type="submit">Salvar</button>
+        <a href="{{ url_for('index') }}">Cancelar</a>
+    </form>
+</body>
+</html>

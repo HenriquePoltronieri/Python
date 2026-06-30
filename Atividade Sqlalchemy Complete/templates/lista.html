@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Alunos</title>
+</head>
+<body>
+    <h1>Lista de Alunos</h1>
+    <a href="{{ url_for('cadastrar') }}">Novo aluno</a>
+    <table border="1" cellpadding="8">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>Email</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for aluno in alunos %}
+            <tr>
+                <td>{{ aluno.id }}</td>
+                <td>{{ aluno.nome }}</td>
+                <td>{{ aluno.email }}</td>
+                <td>
+                    <a href="{{ url_for('editar', aluno_id=aluno.id) }}">Editar</a>
+                    <form action="{{ url_for('excluir', aluno_id=aluno.id) }}" method="POST" style="display:inline">
+                        <button type="submit">Excluir</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
