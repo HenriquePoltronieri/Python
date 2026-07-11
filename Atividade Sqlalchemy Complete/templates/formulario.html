@@ -6,14 +6,17 @@
 </head>
 <body>
     <h1>{{ titulo }}</h1>
+
     <form method="POST">
         <p>
-            <label>Nome:</label>
-            <input type="text" name="nome" value="{{ nome or '' }}" required>
+            <label>Nome:<br>
+                <input type="text" name="nome" value="{{ nome or '' }}" required>
+            </label>
         </p>
         <p>
-            <label>Email:</label>
-            <input type="email" name="email" value="{{ email or '' }}" required>
+            <label>E-mail:<br>
+                <input type="email" name="email" value="{{ email or '' }}" required>
+            </label>
         </p>
         <button type="submit">Salvar</button>
         <a href="{{ url_for('index') }}">Cancelar</a>
